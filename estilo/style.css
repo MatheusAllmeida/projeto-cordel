@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/* fontes externas */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Passion+One&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sriracha&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*variaveis*/
+:root{
+    --fonte1: Verdana, Geneva, Tahoma, sans-serif;
+    --fonte2: 'Passion One', cursive;
+    --fonte3: 'Sriracha', cursive;
+}
+
+/*zerar sistemas*/
+* {
+    margin: 0;
+    padding: 0;
+}
+/*comandos gerais*/
+html, body {
+    min-height: 100vh;
+    background-color: darkgray;
+    font-family: var(--fonte1);
+}
+/*Comandos cabeçalho*/
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+header > h1 {
+    padding-top: 50px;
+    font-variant: small-caps;
+    font-family: var(--fonte2);
+    font-size: 10vw;
+}
+header > p {
+    padding-bottom: 50px;
+}
+header a, footer a{
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+header a:hover, footer a:hover{
+    text-decoration: underline;
+}
+/*Comandos para o Corpo*/
+section{
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    line-height: 1.6em;
+    text-align: center;
+    font-family: var(--fonte3);
+    font-size: 2em;
+}
+section > p {
+    padding: 2em;
+}
+/*Classe das section*/
+section.normal{
+    background-color: white;
+    color: black;
+}
+section.img{
+    background-color: rgba(56, 56, 56, 0.678);
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.329);
+    background-size: cover;
+    background-attachment: fixed;
+}
+section.img > p {
+    display: inline-block;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.103);
+    text-shadow: 1px 1px 0px black;
+}
+/*id das sections*/
+section#img01{
+    background-image: url('../imagens/background001.jpg');
+    background-position: right center;
+}
+section#img02{
+    background-image: url('../imagens/background002.jpg');
+    background-position: right center;
+}
+/*Comandos para o Rodapé*/
+footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    
+}
