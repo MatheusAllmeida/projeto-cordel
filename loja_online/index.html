@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tcho</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar aqui -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Tcho</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carrinho</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://wa.me/seunumero?text=Olá, gostaria de saber mais sobre os produtos!"
+                        target="_blank">WhatsApp</a>
+                </li>
+                <!-- Botões visíveis apenas em telas pequenas -->
+                <li class="nav-item d-lg-none">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#cartModal">Ver Carrinho</button>
+                </li>
+                <li class="nav-item d-lg-none">
+                    <button class="btn btn-success" onclick="checkout()">Finalizar Pedido</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal do Carrinho -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrinho de Compras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartItems">
+                            <!-- Itens do carrinho serão adicionados aqui -->
+                        </tbody>
+                    </table>
+                    <div class="total">
+                        <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick="checkout()">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Coluna para os produtos -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-4">
+                            <img src="img/1.jpg" class="card-img-top" alt="Produto 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Produto 1</h5>
+                                <p class="card-text">Descrição breve do produto.</p>
+                                <p class="card-text"><strong>R$ 50,00</strong></p>
+                                <button class="btn btn-primary btn-add-cart" onclick="addToCart('Produto 1', 50)">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-4">
+                            <img src="img/1.jpg" class="card-img-top" alt="Produto 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Produto 2</h5>
+                                <p class="card-text">Descrição breve do produto.</p>
+                                <p class="card-text"><strong>R$ 50,00</strong></p>
+                                <button class="btn btn-primary btn-add-cart" onclick="addToCart('Produto 2', 50)">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-4">
+                            <img src="img/1.jpg" class="card-img-top" alt="Produto 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Produto 3</h5>
+                                <p class="card-text">Descrição breve do produto.</p>
+                                <p class="card-text"><strong>R$ 50,00</strong></p>
+                                <button class="btn btn-primary btn-add-cart" onclick="addToCart('Produto 3', 50)">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-4">
+                            <img src="img/1.jpg" class="card-img-top" alt="Produto 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Produto 4</h5>
+                                <p class="card-text">Descrição breve do produto.</p>
+                                <p class="card-text"><strong>R$ 50,00</strong></p>
+                                <button class="btn btn-primary btn-add-cart" onclick="addToCart('Produto 4', 50)">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botões fixos para telas grandes -->
+    <div class="d-none d-lg-block position-fixed" style="right: 20px; top: 75px;">
+        <button class="btn btn-add-cart" data-toggle="modal" data-target="#cartModal">Ver Carrinho</button>
+        <button class="btn btn-success" onclick="checkout()">Finalizar Pedido</button>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, e jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+/* cor do botão add ao carrinho*/
+.btn-add-cart {
+    background-color: #ff7b00; /* Cor verde */
+    border-color: #cf6603; /* Cor da borda */
+    color: white; /* Cor do texto */
+}
+
+.btn-add-cart:hover {
+    background-color: #da6c05; /* Cor verde mais escura para o hover */
+    border-color: #ff9a3c; /* Cor da borda no hover */
+}
